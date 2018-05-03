@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:contentDescription="@string/icon_description"
-            app:srcCompat="@drawable/AuburnTigers" />
+            app:srcCompat="@drawable/au_icon" />
     </FrameLayout>
 
     <LinearLayout
