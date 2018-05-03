@@ -1,8 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/root_home_fragment"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_home_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight='.15'
+        android:background="@drawable/ic_launcher_background">
+
+        <ImageView
+            android:id="@+id/header_icon"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/icon_description"
+            app:srcCompat="@drawable/AuburnTigers" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/home_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".70"
+        android:background="@android:drawable/divider_horizontal_dark"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_segment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".20"
+            android:fontFamily="serif"
+            android:text="@string/home_title"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="?android:attr/colorPrimaryDark"
+            android:textSize="36sp" />
+
+        <FrameLayout
+            android:id="@+id/start_segment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".40">
+
+            <Button
+                android:id="@+id/start_game_button"
+                android:layout_width="176dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="@string/start_button" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/score_segment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".40">
+
+            <Button
+                android:id="@+id/view_score_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/score_button" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight='.15'
+        android:background="@drawable/ic_launcher_background">
+
+    </FrameLayout>
+
 </LinearLayout>

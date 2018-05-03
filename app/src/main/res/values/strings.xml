@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Aubie Ball</string>
+    <string name="icon_description">Auburn icon</string>
+    <string name="home_title">Aubie Ball</string>
+    <string name="start_button">Start Game</string>
+    <string name="score_button">View Score Records</string>
 </resources>
