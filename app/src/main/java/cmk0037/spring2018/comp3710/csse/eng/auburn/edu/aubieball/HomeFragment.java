@@ -41,7 +41,6 @@ public class HomeFragment extends Fragment {
                 ((MainActivity)getActivity()).stackContentFragment(R.id.home_content, scorecardFragment, "Home");
             }
         });
-
         return v;
     }
 }

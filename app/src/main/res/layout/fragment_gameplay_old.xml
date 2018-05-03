@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_gameplay_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:id="@+id/endzone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight='.15'
+        android:background="@drawable/ic_launcher_background">
+
+        <ImageView
+            android:id="@+id/endzoneIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/aubie_description"
+            app:srcCompat="@drawable/auburn" />
+    </FrameLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight='.15'
+        android:background="@drawable/ic_launcher_background"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/aubie"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/aubie_description"
+            android:elevation="24dp"
+            app:srcCompat="@drawable/aubie_icon" />
+    </LinearLayout>
+
+</LinearLayout>

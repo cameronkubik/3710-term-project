@@ -31,18 +31,18 @@ public class Line extends DefenseController {
     public void orchestrateMovement(int _speed) {
         speed = _speed;
         movementFlag = true;
-        //final Handler handler = new Handler();
+        final Handler handler = new Handler();
 
         while(movementFlag) {
             moveIndividual(rightman);
 
-            /*handler.postDelayed(new Runnable() {
+            handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     // Do something after 5s = 5000ms
                     moveIndividual(leftman);
                 }
-            }, speed/2);*/
+            }, speed/2);
         }
     }
 

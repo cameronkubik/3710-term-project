@@ -33,13 +33,9 @@ public class GameplayFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_gameplay, container, false);
+        View v = inflater.inflate(R.layout.fragment_gameplay_old, container, false);
 
         linkDefense(v);
-
-        //DefenseController defenseController = getDefenseController();
-
-        //defenseController.beginLineMovement(8000);
 
         return v;
     }
@@ -59,6 +55,7 @@ public class GameplayFragment extends Fragment {
     }
 
     private void linkDefense(View v) {
+
         aubie = v.findViewById(R.id.aubie);
         d11 = v.findViewById(R.id.d11);
         d12 = v.findViewById(R.id.d12);

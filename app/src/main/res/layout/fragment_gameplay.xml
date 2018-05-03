@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_gameplay_fragment"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
         android:id="@+id/endzone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight='.15'
-        android:background="@drawable/ic_launcher_background">
+        android:background="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/endzoneIcon"
@@ -23,130 +22,4 @@
             app:srcCompat="@drawable/auburn" />
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/lineContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".70"
-        android:background="@drawable/ic_launcher_background"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/line4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="15dp"
-            android:paddingStart="15dp">
-
-            <ImageView
-                android:id="@+id/d41"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-
-            <ImageView
-                android:id="@+id/d42"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/line3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="15dp"
-            android:paddingStart="15dp">
-
-            <ImageView
-                android:id="@+id/d31"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-
-            <ImageView
-                android:id="@+id/d32"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/line2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="15dp"
-            android:paddingStart="15dp">
-
-            <ImageView
-                android:id="@+id/d21"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-
-            <ImageView
-                android:id="@+id/d22"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/line1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingEnd="15dp"
-            android:paddingStart="15dp">
-
-            <ImageView
-                android:id="@+id/d11"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-
-            <ImageView
-                android:id="@+id/d12"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:contentDescription="@string/bama_description"
-                app:srcCompat="@drawable/bama_icon" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight='.15'
-        android:background="@drawable/ic_launcher_background"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/aubie"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:contentDescription="@string/aubie_description"
-            android:elevation="24dp"
-            app:srcCompat="@drawable/aubie_icon" />
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

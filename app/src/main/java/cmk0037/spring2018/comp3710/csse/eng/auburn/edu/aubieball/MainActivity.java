@@ -1,5 +1,6 @@
 package cmk0037.spring2018.comp3710.csse.eng.auburn.edu.aubieball;
 
+import android.app.ActivityManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment homeFragment = fm.findFragmentById(R.id.frame_container);
 
         if(homeFragment == null) {
-            homeFragment = new GameplayFragment();
+            homeFragment = new HomeFragment();
             fm.beginTransaction()
                     .add(R.id.frame_container, homeFragment)
                     .commit();
