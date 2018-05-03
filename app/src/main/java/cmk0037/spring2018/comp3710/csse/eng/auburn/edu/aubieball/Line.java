@@ -1,43 +1,73 @@
 package cmk0037.spring2018.comp3710.csse.eng.auburn.edu.aubieball;
 
-import android.text.Layout;
+import android.animation.ObjectAnimator;
+import android.os.Handler;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-
-import java.util.ArrayList;
 
 /**
  * Created by camkubikpro on 5/3/18.
  */
 
 public class Line extends DefenseController {
-    private ImageView leftman;
-    private ImageView rightman;
+    private ImageView leftman, rightman;
+    private LayoutParams leftParams, rightParams;
     private boolean direction; // true=left , false=right
-    private int speed;
-    private int gap;
+    private int speed, gap;
 
+    private boolean movementFlag;
 
 
     public Line(ImageView def1, ImageView def2) {
         leftman = def1;
         rightman = def2;
+
+        leftParams = (LayoutParams) leftman.getLayoutParams();
+        rightParams = (LayoutParams) rightman.getLayoutParams();
+
+        movementFlag = false;
     }
 
-    public void move(int frequency) {
-        speed = frequency;
+    public void orchestrateMovement(int _speed) {
+        speed = _speed;
+        movementFlag = true;
+        //final Handler handler = new Handler();
 
-        LayoutParams leftParams = (LayoutParams) leftman.getLayoutParams();
-        LayoutParams rightParams = (LayoutParams) rightman.getLayoutParams();
+        while(movementFlag) {
+            moveIndividual(rightman);
 
-        int rightBuffer = rightParams.getMarginStart();
-        int leftBuffer = leftParams.getMarginStart();
+            /*handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Do something after 5s = 5000ms
+                    moveIndividual(leftman);
+                }
+            }, speed/2);*/
+        }
+    }
 
-        System.out.println(rightBuffer);
-        System.out.println(leftBuffer);
-        //rightParams.setMarginStart(rightBuffer);
-        //leftParams.setMarginStart(leftBuffer);
+    private void moveIndividual(ImageView defender) {
+        LayoutParams defenderParams = (LayoutParams) defender.getLayoutParams();
+        Float pxRemaining = (float)1150-defenderParams.getMarginStart();
+        ObjectAnimator animationR = ObjectAnimator.ofFloat(defender, "translationX", pxRemaining);
+        animationR.setDuration(speed);
+        animationR.start();
+        resetDefenseMargins(defender);
+    }
+
+    private void resetDefenseMargins(ImageView defender) {
+        LayoutParams defenderParams = (LayoutParams) defender.getLayoutParams();
+        defenderParams.setMarginEnd(1150);
+    }
+
+    public void stopMovement() {
+        movementFlag = false;
+    }
+
+
+    public void setInitialMargins(int pxLeft, int pxRight) {
+        leftParams.setMarginStart(0);
+        rightParams.setMarginStart(0);
     }
 
     public ImageView getLeftman() {

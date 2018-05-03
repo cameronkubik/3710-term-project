@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment homeFragment = fm.findFragmentById(R.id.frame_container);
 
         if(homeFragment == null) {
-            homeFragment = new HomeFragment();
+            homeFragment = new GameplayFragment();
             fm.beginTransaction()
                     .add(R.id.frame_container, homeFragment)
                     .commit();

@@ -37,11 +37,25 @@ public class GameplayFragment extends Fragment {
 
         linkDefense(v);
 
-        DefenseController defenseController = getDefenseController();
+        //DefenseController defenseController = getDefenseController();
 
-        defenseController.beginLineMovement(1);
+        //defenseController.beginLineMovement(8000);
 
         return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        DefenseController defenseController = getDefenseController();
+
+        defenseController.beginLineMovement(8000);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     private void linkDefense(View v) {
