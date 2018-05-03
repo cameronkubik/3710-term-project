@@ -12,7 +12,7 @@ import android.widget.Button;
  * Created by camkubikpro on 5/3/18.
  */
 
-public class DIfficultyFragment extends Fragment {
+public class DifficultyFragment extends Fragment {
 
     @Nullable
     @Override
@@ -26,12 +26,16 @@ public class DIfficultyFragment extends Fragment {
         mEasyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Replace home content fragment with game fragment
+                GameplayFragment gameplayFragment = new GameplayFragment();
+                ((MainActivity)getActivity()).stackContentFragment(R.id.root_home_fragment, gameplayFragment, "Difficulty Select");
             }
         });
         // On click - Hard Button
         mHardButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Replace home fragment with score fragment
+                GameplayFragment gameplayFragment = new GameplayFragment();
+                ((MainActivity)getActivity()).stackContentFragment(R.id.root_home_fragment, gameplayFragment, "Difficulty Select");
             }
         });
 

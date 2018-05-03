@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_scorecard_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
 
     <TextView
         android:id="@+id/titleSegment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".3"
+        android:layout_weight=".175"
+        android:gravity="center_vertical"
         android:text="@string/scorecard_title"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/highscoreSegment"
@@ -27,61 +28,116 @@
             android:id="@+id/highscoreLabel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:text="@string/highScoreLabel"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/highscoreValue"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textAlignment="center" />
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/minSegment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/minLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/min_label"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/minValue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/avgSegment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/avgLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/avg_label"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/avgValue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/maxSegment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".1"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/maxLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:text="@string/max_label"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/maxValue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:gravity="center_vertical"
+            android:textAlignment="center"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/resetSegment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight=".15">
 
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/reset_button"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
     </FrameLayout>
 </LinearLayout>

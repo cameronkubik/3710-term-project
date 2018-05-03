@@ -16,5 +16,9 @@
     <string name="score_button">View Score Records</string>
     <string name="easy_button">Easy</string>
     <string name="hard_button">Hard</string>
-    <string name="reset_button">Reset</string>
+    <string name="reset_button">Reset Score Statistics</string>
+
+    <string name="aubie_description">Aubie icon</string>
+    <string name="auburn_description">Auburn Logo</string>
+    <string name="bama_description">Alabama icon</string>
 </resources>

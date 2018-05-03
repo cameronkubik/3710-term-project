@@ -30,14 +30,15 @@ public class HomeFragment extends Fragment {
         mStartButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Replace home content fragment with game fragment
-                DIfficultyFragment dIfficultyFragment = new DIfficultyFragment();
-                ((MainActivity)getActivity()).stackContentFragment(R.id.home_content, dIfficultyFragment, "Home");
+                DifficultyFragment difficultyFragment = new DifficultyFragment();
+                ((MainActivity)getActivity()).stackContentFragment(R.id.home_content, difficultyFragment, "Home");
             }
         });
         // On click - View Score Records Button
         mScoreButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Replace home fragment with score fragment
+                ScorecardFragment scorecardFragment = new ScorecardFragment();
+                ((MainActivity)getActivity()).stackContentFragment(R.id.home_content, scorecardFragment, "Home");
             }
         });
 
