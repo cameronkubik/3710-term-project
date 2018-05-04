@@ -1,0 +1,16 @@
+@startuml
+
+Aubie "1" -- "1" EndZone: starts at >
+
+Aubie "1" -- "1" Joystick: controls <
+
+Aubie "1" -- "1" Field: moves across >
+
+EndZone "2" --* "1" Field: contains <
+
+Field "1" *-- "4..6" Line
+
+Line "1" o-- "2..*" Defensemen: move along <
+
+Line "1" o-- "0..1" Referee: move along <
+@enduml

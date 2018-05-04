@@ -1,6 +1,6 @@
 package cmk0037.spring2018.comp3710.csse.eng.auburn.edu.aubieball;
 
-import android.app.ActivityManager;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,14 +14,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment homeFragment = fm.findFragmentById(R.id.frame_container);
+        final FragmentManager fm = getSupportFragmentManager();
+        Fragment splashFragment = fm.findFragmentById(R.id.frame_container);
 
-        if(homeFragment == null) {
-            homeFragment = new HomeFragment();
+        if(splashFragment == null) {
+            splashFragment = new Splash();
+
             fm.beginTransaction()
-                    .add(R.id.frame_container, homeFragment)
+                    .add(R.id.frame_container, splashFragment)
                     .commit();
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Fragment homeFragment = new HomeFragment();
+                    fm.beginTransaction().replace(R.id.frame_container, homeFragment)
+                            .commit();
+                }
+            }, 3000);
         }
     }
 

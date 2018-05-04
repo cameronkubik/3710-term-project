@@ -1,0 +1,28 @@
+'@startuml
+title Aubie Ball System Sequence Diagram
+actor Player as pl
+participant AubieBallSystem as sys
+
+group SD: Aubie Ball
+pl --> sys: start
+note right: UC: Play Game
+sys --> pl: select difficulty
+note right: UC: Select Difficulty
+pl-->sys:difficulty
+loop while !hit
+sys-->pl:Field
+note right: UC: View Field
+sys-->pl:Aubie
+sys-->pl:Defense
+sys-->pl:Joystick
+else Move
+pl-->sys: move
+note right: UC: Move Aubie
+end
+opt view scores
+pl-->sys: View Scores
+note right: UC: View Score Statistics
+sys-->pl: score statistics
+end
+end
+@enduml

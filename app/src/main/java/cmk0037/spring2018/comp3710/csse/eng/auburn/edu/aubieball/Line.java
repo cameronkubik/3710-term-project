@@ -1,112 +1,48 @@
 package cmk0037.spring2018.comp3710.csse.eng.auburn.edu.aubieball;
 
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.os.Handler;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ImageView;
+
+import com.scalified.viewmover.configuration.MovingParams;
+import com.scalified.viewmover.movers.ViewMover;
+import com.scalified.viewmover.movers.ViewMoverFactory;
 
 /**
  * Created by camkubikpro on 5/3/18.
  */
 
-public class Line extends DefenseController {
+public class Line {
     private ImageView leftman, rightman;
-    private LayoutParams leftParams, rightParams;
     private boolean direction; // true=left , false=right
-    private int speed, gap;
-
     private boolean movementFlag;
 
 
-    public Line(ImageView def1, ImageView def2) {
+    public Line(ImageView def1, ImageView def2, String _direction) {
         leftman = def1;
         rightman = def2;
-
-        leftParams = (LayoutParams) leftman.getLayoutParams();
-        rightParams = (LayoutParams) rightman.getLayoutParams();
-
-        movementFlag = false;
-    }
-
-    public void orchestrateMovement(int _speed) {
-        speed = _speed;
+        direction = _direction.equals("left");
         movementFlag = true;
-        final Handler handler = new Handler();
-
-        while(movementFlag) {
-            moveIndividual(rightman);
-
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Do something after 5s = 5000ms
-                    moveIndividual(leftman);
-                }
-            }, speed/2);
-        }
     }
 
-    private void moveIndividual(ImageView defender) {
-        LayoutParams defenderParams = (LayoutParams) defender.getLayoutParams();
-        Float pxRemaining = (float)1150-defenderParams.getMarginStart();
-        ObjectAnimator animationR = ObjectAnimator.ofFloat(defender, "translationX", pxRemaining);
-        animationR.setDuration(speed);
-        animationR.start();
-        resetDefenseMargins(defender);
-    }
+    public void move(Context context) {
+        // Create ViewMover instance
+        ViewMover leftMover = ViewMoverFactory.createInstance(leftman);
+        ViewMover rightMover = ViewMoverFactory.createInstance(rightman);
 
-    private void resetDefenseMargins(ImageView defender) {
-        LayoutParams defenderParams = (LayoutParams) defender.getLayoutParams();
-        defenderParams.setMarginEnd(1150);
-    }
+        // Create MovingDetails instance
+        MovingParams leftParams = new MovingParams(context, 220f, 0.0f, 3000L);
+        MovingParams rightParams = new MovingParams(context, -220f, 0.0f, 3000L);
 
-    public void stopMovement() {
-        movementFlag = false;
+        // Move the view
+        leftMover.move(leftParams);
+        rightMover.move(rightParams);
+
     }
 
 
-    public void setInitialMargins(int pxLeft, int pxRight) {
-        leftParams.setMarginStart(0);
-        rightParams.setMarginStart(0);
-    }
 
-    public ImageView getLeftman() {
-        return leftman;
-    }
 
-    public void setLeftman(ImageView leftman) {
-        this.leftman = leftman;
-    }
-
-    public ImageView getRightman() {
-        return rightman;
-    }
-
-    public void setRightman(ImageView rightman) {
-        this.rightman = rightman;
-    }
-
-    public boolean isDirection() {
-        return direction;
-    }
-
-    public void setDirection(boolean direction) {
-        this.direction = direction;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getGap() {
-        return gap;
-    }
-
-    public void setGap(int gap) {
-        this.gap = gap;
-    }
 }

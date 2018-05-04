@@ -1,6 +1,16 @@
 package cmk0037.spring2018.comp3710.csse.eng.auburn.edu.aubieball;
 
+import android.content.Context;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Guideline;
+import android.view.View;
 import android.widget.ImageView;
+
+import com.scalified.viewmover.configuration.MovingParams;
+import com.scalified.viewmover.movers.ViewMover;
+import com.scalified.viewmover.movers.ViewMoverFactory;
+
+import org.slf4j.IMarkerFactory;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -10,61 +20,80 @@ import java.util.ListIterator;
  */
 
 public class DefenseController {
-    private ArrayList<ImageView> defensemen;
-    private ArrayList<Line> lines;
+    private ArrayList<ImageView> defense;
+    private Context mContext;
+    private Line line1;
+    private Line line2;
+    private Line line3;
+    private Line line4;
 
-    public DefenseController(ArrayList<ImageView> _defensemen) {
-        defensemen = _defensemen;
-        lines = new ArrayList<>(4);
-        makeLines();
-        setLineMetaData();
-    }
-
-    private void makeLines() {
-        ListIterator<ImageView> defenseIterator = defensemen.listIterator();
-        ListIterator<Line> lineIterator = lines.listIterator();
-
-
-        while(defenseIterator.hasNext()) {
-            lineIterator.add(new Line(defenseIterator.next(), defenseIterator.next()));
-        }
-    }
-
-    private void setLineMetaData() {
-        ListIterator<Line> lineIterator = lines.listIterator();
-
-        Line line1 = lineIterator.next();
-        Line line2 = lineIterator.next();
-        Line line3 = lineIterator.next();
-        Line line4 = lineIterator.next();
-        // lines 1,2 start LTR
-        line1.setDirection(false);
-        line1.setInitialMargins(200, 650);
-        line2.setDirection(false);
-        line2.setInitialMargins(100, 450);
-        // lines 3,4 start RTL
-        line3.setDirection(true);
-        line3.setInitialMargins(400, 400);
-        line4.setDirection(true);
-        line4.setInitialMargins(600, 200);
-    }
-
-    public void beginLineMovement(int speed) {
-        ListIterator<Line> lineIterator = lines.listIterator();
-
-        Line line1 = lineIterator.next();
-        Line line2 = lineIterator.next();
-        Line line3 = lineIterator.next();
-        Line line4 = lineIterator.next();
-        // lines 1,2 start LTR
-        line1.orchestrateMovement(speed);
-        line2.orchestrateMovement(speed);
-        line3.orchestrateMovement(speed);
-        line4.orchestrateMovement(speed);
+    public DefenseController(ArrayList<ImageView> def, Context context) {
+        defense = def;
+        mContext = context;
     }
 
     public DefenseController() {
-        //empty default constructor for subclasses
+        // default empty constructor
     }
+
+    public void initializeDefense() {
+        ListIterator<ImageView> listIterator = defense.listIterator();
+
+        while(listIterator.hasNext()) {
+            line1 = new Line(listIterator.next(), listIterator.next(), "right");
+
+            line2 = new Line(listIterator.next(), listIterator.next(), "right");
+
+            line3 = new Line(listIterator.next(), listIterator.next(), "left");
+
+            line4 = new Line(listIterator.next(), listIterator.next(), "left");
+        }
+
+    }
+
+    public void moveDefense() {
+        line1.move(mContext);
+
+        line2.move(mContext);
+
+        line3.move(mContext);
+
+        line4.move(mContext);
+
+    }
+
+    /*
+    public void beginMovement(Context context) {
+        ListIterator<ImageView> defenseIterator = defense.listIterator();
+        int index = 0;
+        while(defenseIterator.hasNext()) {
+            // Create ViewMover instance
+            ViewMover mover = ViewMoverFactory.createInstance(defenseIterator.next());
+
+            // Create MovingDetails instance
+            MovingParams params = new MovingParams(context, getDefenseMargin(index), 0.0f, 3000L);
+
+            // Move the view
+            mover.move(params);
+            index++;
+        }
+
+
+    }
+
+    private float getDefenseMargin(int index) {
+        int _case = index % 2;
+        switch (_case) {
+            case 0:
+                return 100.0f;
+            case 1:
+                return 300.0f;
+            default:
+                return 50.0f;
+        }
+    }
+     */
+
+
 
 }

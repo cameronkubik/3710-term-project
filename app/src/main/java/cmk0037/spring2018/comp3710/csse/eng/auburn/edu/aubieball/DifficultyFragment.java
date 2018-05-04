@@ -27,7 +27,7 @@ public class DifficultyFragment extends Fragment {
             public void onClick(View v) {
                 // Replace home content fragment with game fragment
                 GameplayFragment gameplayFragment = new GameplayFragment();
-                ((MainActivity)getActivity()).stackContentFragment(R.id.root_home_fragment, gameplayFragment, "Difficulty Select");
+                ((MainActivity)getActivity()).stackContentFragment(R.id.root_home_fragment, gameplayFragment, "DifficultySelect");
             }
         });
         // On click - Hard Button
@@ -35,7 +35,7 @@ public class DifficultyFragment extends Fragment {
             public void onClick(View v) {
                 // Replace home fragment with score fragment
                 GameplayFragment gameplayFragment = new GameplayFragment();
-                ((MainActivity)getActivity()).stackContentFragment(R.id.root_home_fragment, gameplayFragment, "Difficulty Select");
+                ((MainActivity)getActivity()).stackContentFragment(R.id.root_home_fragment, gameplayFragment, "DifficultySelect");
             }
         });
 

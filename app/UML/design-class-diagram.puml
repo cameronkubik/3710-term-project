@@ -1,0 +1,63 @@
+@startuml
+class DifficultyFragment extends Fragment {
+    onCreateView()
+}
+
+class GameplayFragment extends Fragment {
+totalGameTime: float
+defenseController: DefenseController
+Aubie: ImageView
+d11: ImageView
+d12: ImageView
+d21: ImageView
+d22: ImageView
+d31: ImageView
+d32: ImageView
+d41: ImageView
+d42: ImageView
+}
+
+class HomeFragment extends Fragment {
+onCreate()
+onCreateView()
+
+}
+
+class ScorecardFragment extends Fragment{
+onCreateView()
+}
+
+class Line {
+leftman: ImageView
+rightman: ImageView
+direction: boolean
+movementFlag: boolean
+move()
+}
+
+class DefenseController {
+    defense: ArrayList<ImageView>
+    mContext: Context
+    line1: Line
+    line2: Line
+    line3: Line
+    line4: Line
+    initializeDefense()
+    moveDefense()
+}
+
+class Fragment extends Field {
+
+}
+
+Field "1" *-- "4..6" Line
+
+class EndZone implements ImageView {
+background: PNG
+}
+
+Field "1" *-- "2" EndZone
+
+Field "1" *-- "1" DefenseController
+
+@enduml

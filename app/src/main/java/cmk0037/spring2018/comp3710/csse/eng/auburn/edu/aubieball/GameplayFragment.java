@@ -1,7 +1,12 @@
 package cmk0037.spring2018.comp3710.csse.eng.auburn.edu.aubieball;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Guideline;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +23,7 @@ import java.util.ArrayList;
 public class GameplayFragment extends Fragment {
     //declare game artifacts
     private float mTotalGameTime;
+    private DefenseController defenseController;
     //declare actors
     private ImageView aubie;
     private ImageView d11;
@@ -28,12 +34,11 @@ public class GameplayFragment extends Fragment {
     private ImageView d32;
     private ImageView d41;
     private ImageView d42;
-    private FrameLayout endzone;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_gameplay_old, container, false);
+        View v = inflater.inflate(R.layout.fragment_gameplay, container, false);
 
         linkDefense(v);
 
@@ -44,9 +49,17 @@ public class GameplayFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        DefenseController defenseController = getDefenseController();
+        defenseController = getDefenseController(getContext());
+        defenseController.initializeDefense();
 
-        defenseController.beginLineMovement(8000);
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                defenseController.moveDefense();
+            }
+        }, 2000);
     }
 
     @Override
@@ -57,6 +70,7 @@ public class GameplayFragment extends Fragment {
     private void linkDefense(View v) {
 
         aubie = v.findViewById(R.id.aubie);
+
         d11 = v.findViewById(R.id.d11);
         d12 = v.findViewById(R.id.d12);
         d21 = v.findViewById(R.id.d21);
@@ -65,9 +79,12 @@ public class GameplayFragment extends Fragment {
         d32 = v.findViewById(R.id.d32);
         d41 = v.findViewById(R.id.d41);
         d42 = v.findViewById(R.id.d42);
+
+
     }
 
-    private DefenseController getDefenseController() {
+    private DefenseController getDefenseController(Context ctx) {
+
         ArrayList<ImageView> defenseArray = new ArrayList<>(8);
         defenseArray.add(0, d11);
         defenseArray.add(1, d12);
@@ -78,7 +95,7 @@ public class GameplayFragment extends Fragment {
         defenseArray.add(6, d41);
         defenseArray.add(7, d42);
 
-        return new DefenseController(defenseArray);
+        return new DefenseController(defenseArray, ctx);
     }
 
 

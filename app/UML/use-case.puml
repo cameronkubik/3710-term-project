@@ -1,0 +1,16 @@
+@startuml
+title Aubie Ball - Use Case Diagram
+left to right direction
+
+actor Player as au
+
+rectangle {
+au -- (Select Difficulty)
+au -- (View score statistics)
+au -- (Play Game)
+
+(Play Game) ..> (Move Aubie): includes
+(Play Game) ..> (View Field): includes
+}
+
+@enduml

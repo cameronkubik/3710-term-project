@@ -21,4 +21,6 @@
     <string name="aubie_description">Aubie icon</string>
     <string name="auburn_description">Auburn Logo</string>
     <string name="bama_description">Alabama icon</string>
+
+    <string name="required">Aubie Ball\nCameronKubik\nAuburn University   COMP3710   Spring 2018</string>
 </resources>
